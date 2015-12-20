@@ -1,3 +1,6 @@
+import webbrowser
+
+class Movie():
     """  Like a database table this class is set up to capture data elements pertinent to
     various films to be listed in the entertainment_center.py file.
     """
