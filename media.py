@@ -1,10 +1,10 @@
-import webbrowser
+    """  Like a database table this class is set up to capture data elements pertinent to
+    various films to be listed in the entertainment_center.py file.
+    """
 
-class Movie():
-    #RATING={'G':'G','PG':'PG','R': 'R'}  In this example how could one call this in the entertainment_center.py file??
-    #I know that this is supposed to be a best practice but the material did not cover how this could be called
-    #in from other files.
-
+    #This is a class variable to be used for data integrity purposes. This variable will be tested and
+    # assigned as an instance variable called 'rating'
+    VALID_RATINGS = ['G', 'PG', 'PG-13', 'R']
 
     def __init__(self, movie_title, movie_storyline, genre, duration, cast,
     poster_image, trailer_youtube_url, year_release,rating,star_review):
@@ -19,6 +19,14 @@ class Movie():
         self.rating=rating
         self.star_review=star_review
 
+        # Check rating input is valid in VALID_RATINGS list
+        if rating in self.VALID_RATINGS:
+            # Assigns a rating property to rating input if it is  valid
+            self.rating=rating
+        else:
+            # Assigns an invalid string if rating is not valid
+            self.rating="INVALID_ENTRY"
 
+    # this function opens the video trailer once selected.
     def start_movie(self):
         webbrowser.open(self.trailer_youtube)
